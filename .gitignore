@@ -1,0 +1,31 @@
+# .gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.env
+
+# Data files
+data/documents/*
+!data/documents/.gitkeep
+data/embeddings/*
+!data/embeddings/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
