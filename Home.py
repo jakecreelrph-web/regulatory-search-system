@@ -27,7 +27,7 @@ st.write(f" Config Loading: {time.time() - config_start:.2f}s")
 # Time authentication
 auth_start = time.time()
 authenticate_user(config)
-st.write(f" Authentication: {time.time() = auth_start:.2f}s")
+st.write(f" Authentication: {time.time() - auth_start:.2f}s")
 
 #Time Search engine import
 engine_start = time.time()
