@@ -1,8 +1,63 @@
+import time
+import streamlit as st
+
+start_time = time.time()
+st.write(" **Startup Timeing Debug:**")
+
+# Time basic imports
+basic_import_start = time.time()
+import yaml
+st.write(f" Basic imports: {time.time() - basic_import_start:.2f}s")
+
+# Time utiliz import
+utils_start = time.Time()
+from src.utils import setup_page_config, authenticate_user, display_sidebar_info, load_config
+st.write(f" Utils import: {time.time() - utils_start:.2f}s")
+
+# Time Page setup
+setup_start = time.time()
+setup_page_config()
+st.write(f" Page setup: {time.time() - setup_start:.2f}s")
+
+#time config
+config_start = time.time()
+config = load_config()
+st.write(f" Config Loading: {time.time() - config_start:.2f}s")
+
+# Time authentication
+auth_start = time.time()
+authenticate_user(config)
+st.write(f" Authentication: {time.time() = auth_start:.2f}s")
+
+#Time Search engine import
+engine_start = time.time()
+from src.search_engine import SearchEngine
+st.write(f" Search engine import: {time.time() - engine_start:.2f}s")
+
+st.write(f" Total startup time: time.time()  start_time:.2f} seconds**")
+
 # Home.py
 import streamlit as st
 import yaml
 from src.utils import setup_page_config, authenticate_user, display_sidebar_info, load_config
 from src.search_engine import SearchEngine
+import os
+
+
+os.environ['TOKENIZERS_PARALLELISM'] = 'false'
+
+@st.cache_resource
+def initialize_system():
+    """Initialized system components once"""
+    try:
+        config = load_config()
+        return config
+    except Exception as e:
+        st.error(f"System initialization failed: {e}")
+        return None
+config = initialize_system()
+if config is None:
+    st.stop()
 
 # Page configuration
 setup_page_config()
