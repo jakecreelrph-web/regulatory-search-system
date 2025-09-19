@@ -192,8 +192,8 @@ class SearchEngine:
                     except:
                         continue
         
-        # Convert sets to lists
-        stats["regulators"] = sorted(list(stats["regulators"]))
-        stats["document_types"] = sorted(list(stats["document_types"]))
+        # Convert sets to lists, filtering out None values
+        stats["regulators"] = sorted([r for r in stats["regulators"] if r is not None])
+        stats["document_types"] = sorted([d for d in stats["document_types"] if d is not None])
         
         return stats
