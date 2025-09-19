@@ -34,7 +34,8 @@ engine_start = time.time()
 from src.search_engine import SearchEngine
 st.write(f" Search engine import: {time.time() - engine_start:.2f}s")
 
-st.write(f" Total startup time: time.time()  start_time:.2f} seconds**")
+st.write(f" Total startup time: {time.time()  start_time:.2f} seconds**")
+st.markdown("---")
 
 # Home.py
 import streamlit as st
