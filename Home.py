@@ -10,7 +10,7 @@ import yaml
 st.write(f" Basic imports: {time.time() - basic_import_start:.2f}s")
 
 # Time utiliz import
-utils_start = time.Time()
+utils_start = time.time()
 from src.utils import setup_page_config, authenticate_user, display_sidebar_info, load_config
 st.write(f" Utils import: {time.time() - utils_start:.2f}s")
 
